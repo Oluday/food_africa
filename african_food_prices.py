@@ -47,7 +47,7 @@ def load_data():
     #renaming two columns
     df.rename({'um_unit_id': 'exchanged_qty'}, axis=1, inplace=True)
     df['exchanged_qty'] = df.exchanged_qty.astype('float')
-    #df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
+    df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
     #cleaning produce column and renaming it
     df['core_produce'] = df['produce'].str.extract(r'([^\(]+)')
     df['core_produce'] = df['core_produce'].str.split('-').str[0]
@@ -137,6 +137,7 @@ col3.metric("Quantity exchanged", f'{no_exchanged:,}')
 
 # returning filtered table
 new_table = df.query("core_produce == @selected_produces & year == @selected_years & country == @selected_countries")
+st.dataframe(new_table)
 no_new_table = new_table['produce'].nunique()
 
 #catching error
