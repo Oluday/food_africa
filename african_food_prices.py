@@ -310,7 +310,7 @@ st.plotly_chart(state_vol_fig)
 
 
 
-Month_exchanged_qty = new_table.groupby('month')['exchanged_qty'].sum().sort_values(ascending=False)
+Month_exchanged_qty = new_table.groupby('country')['exchanged_qty'].sum().sort_values(ascending=False)
 month_qty_fig = px.bar(
     Month_exchanged_qty ,
     x=Month_exchanged_qty.index,
