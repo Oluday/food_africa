@@ -107,8 +107,8 @@ custom_css = """
 }
 </style>
 """
-st.markdown('###')
-<div class="my-container">
+st.markdown('<div class="my-container">oooooooooooooooooooo</>')
+
 col1, col2, col3 = st.columns(3)
 col1.metric("No of produce", f'{no_produces:,}')
 col2.metric("Total Price", f'{sumPrice:,}')
@@ -334,7 +334,6 @@ right_column.plotly_chart(price_vol_fig, use_container_width=True)
 
 
 
-</div>
 
 
 # ---- HIDE STREAMLIT STYLE ----
