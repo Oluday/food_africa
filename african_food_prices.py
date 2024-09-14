@@ -281,11 +281,31 @@ mrkt_fig.update_layout(
     plot_bgcolor="rgba(7,0,4,0)",
     xaxis=(dict(showgrid=False))
 )
-st.plotly_chart(mrkt_fig)
+#st.plotly_chart(mrkt_fig)
+
+
+sum_mothly_price =df.groupby('country')['price'].sum().sort_values()
+month_fig = px.line(
+    sum_mothly_price,
+    x=sum_mothly_price.index,
+    y="price",
+    title="<b>Sum Price Based On Months</b>",
+    color_discrete_sequence=["#0083B8"] * len(sum_mothly_price),
+    template="plotly_white",
+)
+avg_price_cou.update_layout(
+    plot_bgcolor="rgba(0,0,0,0)",
+    xaxis=(dict(showgrid=False))
+)
+#st.plotly_chart(month_fig)
 
 
 
 
+
+left_column, right_column = st.columns(2)
+left_column.plotly_chart(mrkt_fig, use_container_width=True)
+right_column.plotly_chart(month_fig, use_container_width=True)
 
 
 
