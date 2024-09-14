@@ -8,25 +8,6 @@ import plotly.express as px
 
 # page config
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
-st.markdown("""
-
-page_bg_img = f"""
-<style>
-[data-testid="stAppViewContainer"] > .main {{
-background-image: url("https://i.postimg.cc/4xgNnkfX/Untitled-design.png");
-background-size: cover;
-background-position: center center;
-background-repeat: no-repeat;
-background-attachment: local;
-#background:grey;
-}}
-[data-testid="stHeader"] {{
-background: rgba(0,0,0,0);
-}}
-</style>
-"""
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
 
