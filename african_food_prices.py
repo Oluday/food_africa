@@ -17,7 +17,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    "## This is theidebar"
+    "## Filter using this sidebar"
 
 # Title
 #st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊')
