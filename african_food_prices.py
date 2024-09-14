@@ -42,6 +42,11 @@ def load_data():
     # fiiling none columns state
     df['state'].fillna('unknown', inplace=True)
     df['year'] = df.year.replace(',', '.')
+    df['month'] = df['month'].dt.month_name().str[:3]
+
+    #df['date'].dt.month_name().str[:3].sample(5)
+
+
     # Remove the comma from the name column
     #df['quantity'] = df['quantity'].str.extract('(\d+)', expand=False)
     #renaming two columns
@@ -315,7 +320,7 @@ month_qty_fig = px.bar(
     Month_exchanged_qty ,
     x=Month_exchanged_qty.index,
     y="exchanged_qty",
-    title="<b>Exchaged Quantity Based On Month</b>",
+    title="<b>Exchaged Quantity Based On Countries</b>",
     color_discrete_sequence=["#0083B8"] * len(Month_exchanged_qty ),
     template="plotly_white"
 )
