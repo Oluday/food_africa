@@ -7,8 +7,7 @@ import plotly.express as px
 
 
 # page config
-st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊', initial_sidebar_state='expanded')
-
+st.set_page_config(page_title="African Food Prices", layout='centered', page_icon='📊')
 #with open('style.css') as f:
 #    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
