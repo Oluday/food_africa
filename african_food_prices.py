@@ -32,7 +32,6 @@ st.write(css, unsafe_allow_html=True)
 
 
 
-
 st.markdown("""
 <style>
     [data-testid=stSidebar] {
@@ -42,7 +41,10 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    "## This is the side
+    "## This is the sidebar"
+
+
+
 # Title
 #st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊')
 #(page_title="Africa food prices", layout='wide',initial_sidebar_state='expanded', page_icon='📊')
