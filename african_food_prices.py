@@ -8,31 +8,6 @@ import plotly.express as px
 
 # page config
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
-
-
-
-
-
-with st.form("My form"):
-    first = st.text_input("First name")
-    last = st.text_input("Last name")
-    if st.form_submit_button("Submit"):
-        st.write(first+" "+last)
-
-css="""
-<style>
-    [data-testid="stForm"] {
-        background: LightBlue;
-    }
-</style>
-"""
-st.write(css, unsafe_allow_html=True)
-#with open('style.css') as f:
-#    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
-
-
-
-
 st.markdown("""
 <style>
     [data-testid=stSidebar] {
@@ -97,19 +72,7 @@ selected_countries = st.sidebar.multiselect("select country", countries,[countri
 
 
 
-# display in columns
-custom_css = """
-<style>
-.my-container {
- background-color: #f0f2f6;
- padding: 10px;
- border-radius: 5px;
-}
-</style>
-"""
 st.markdown('###')
-
-
 page_bg_img = f"""
 <style>
 [data-testid="stAppViewContainer"] > .main {{
