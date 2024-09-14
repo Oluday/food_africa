@@ -6,13 +6,15 @@ import plotly.express as px
 
 
 
-## load data
-
-# page config
+## page config
 st.set_page_config(page_title="African Food Prices", layout='centered', page_icon='📊')
 
 # Title
 st.title (" 📊  African Food Prices - Web App")
+# page config
+with open('style.css') as f:
+    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
 
 
 #styling sidebar
