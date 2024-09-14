@@ -120,14 +120,12 @@ background-repeat: no-repeat;
 background-attachment: local;
 }}
 [data-testid="stHeader"] {{
-background: #000000;
+background: rgba(0,0,0,0);
 }}
 </style>
 """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
-
-
 
 
 
