@@ -14,6 +14,16 @@ st.set_page_config(page_title="African Food Prices", layout='centered', page_ico
 
 
 #styling sidebar
+st.markdown("""
+<style>
+    [data-testid=stSidebar] {
+        background-color: #ff000050;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+with st.sidebar:
+    "## Filter with sidebar"
 
 
 # Title
@@ -83,25 +93,6 @@ custom_css = """
 </style>
 """
 st.markdown('###')
-
-
-page_bg_img = f"""
-<style>
-[data-testid="stAppViewContainer"] > .main {{
-background-image: url("https://i.postimg.cc/4xgNnkfX/Untitled-design.png");
-background-size: cover;
-background-position: center center;
-background-repeat: no-repeat;
-background-attachment: local;
-}}
-[data-testid="stHeader"] {{
-background: rgba(0,0,0,0);
-}}
-</style>
-"""
-
-st.markdown(page_bg_img, unsafe_allow_html=True)
-
 
 
 
