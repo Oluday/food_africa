@@ -32,18 +32,29 @@ st.write(css, unsafe_allow_html=True)
 
 
 
-st.markdown("""
+st.markdown(
+    """
 <style>
-    [data-testid=stSidebar] {
-        background-color: #ff000050;
-    }
+.css-nzvw1x {
+    background-color: #061E42 !important;
+    background-image: none !important;
+}
+.css-1aw8i8e {
+    background-image: none !important;
+    color: #FFFFFF !important
+}
+.css-ecnl2d {
+    background-color: #496C9F !important;
+    color: #496C9F !important
+}
+.css-15zws4i {
+    background-color: #496C9F !important;
+    color: #FFFFFF !important
+}
 </style>
-""", unsafe_allow_html=True)
-
-with st.sidebar:
-    "## This is the sidebar"
-
-
+""",
+    unsafe_allow_html=True
+)
 
 # Title
 #st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊')
