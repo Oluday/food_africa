@@ -14,16 +14,7 @@ st.set_page_config(page_title="African Food Prices", layout='centered', page_ico
 
 
 #styling sidebar
-st.markdown("""
-<style>
-    [data-testid=stSidebar] {
-        background-color: #ff000050;
-    }
-</style>
-""", unsafe_allow_html=True)
 
-with st.sidebar:
-    "## Filter with sidebar"
 
 # Title
 #(page_title="Africa food prices", layout='wide',initial_sidebar_state='expanded', page_icon='📊')
