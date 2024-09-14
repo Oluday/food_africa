@@ -107,7 +107,7 @@ custom_css = """
 }
 </style>
 """
-st.markdown('<div class="my-container">oooooooooooooooooooo</>')
+st.markdown('###')
 
 col1, col2, col3 = st.columns(3)
 col1.metric("No of produce", f'{no_produces:,}')
