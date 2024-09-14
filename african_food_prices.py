@@ -284,7 +284,7 @@ mrkt_fig.update_layout(
 #st.plotly_chart(mrkt_fig)
 
 
-sum_mothly_price =df.groupby('country')['price'].sum().sort_values()
+sum_mothly_price =df.groupby('month')['price'].sum().sort_values()
 month_fig = px.line(
     sum_mothly_price,
     x=sum_mothly_price.index,
