@@ -81,6 +81,7 @@ background-size: cover;
 background-position: center center;
 background-repeat: no-repeat;
 background-attachment: local;
+background:#000000;
 }}
 [data-testid="stHeader"] {{
 background: rgba(0,0,0,0);
