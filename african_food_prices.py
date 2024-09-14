@@ -3,6 +3,7 @@ import numpy as np
 import pandas as pd
 #import matplotlib.pyplot as plt
 import plotly.express as px
+import calendar
 
 
 
@@ -12,8 +13,8 @@ st.set_page_config(page_title="African Food Prices", layout='centered', page_ico
 # Title
 st.title (" 📊  African Food Prices - Web App")
 # page config
-with open('style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+#with open('style.css') as f:
+#    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 
 
@@ -37,20 +38,15 @@ st.markdown("##")
 @st.cache_data
 def load_data():
     df = pd.read_csv("africa_food_prices.csv")
-  
+    # data cleaning
     # dropping columns
     df.drop(columns=['Unnamed: 0','mp_commoditysource','currency_id','country_id',
                  'market_id','state_id','produce_id','pt_id'],  inplace= True)
-
     # fiiling none columns state
     df['state'].fillna('unknown', inplace=True)
     df['year'] = df.year.replace(',', '.')
-    import calendar
+    # change month to month name
     df['month'] = df['month'].apply(lambda x: calendar.month_abbr[x])
-
-
-    # Remove the comma from the name column
-    #df['quantity'] = df['quantity'].str.extract('(\d+)', expand=False)
     #renaming two columns
     df.rename({'um_unit_id': 'exchanged_qty'}, axis=1, inplace=True)
     df['exchanged_qty'] = df.exchanged_qty.astype('float')
@@ -60,7 +56,7 @@ def load_data():
     df['core_produce'] = df['core_produce'].str.strip()
     return df
 
-
+#loading data
 df = load_data()
 #st.subheader("Data  Preview")
 #st.dataframe(df.tail())
@@ -86,20 +82,7 @@ selected_countries = st.sidebar.multiselect("select country", countries,[countri
 
 
 
-# display in columns
-custom_css = """
-<style>
-.my-container {
- background-color: #f0f2f6;
- padding: 10px;
- border-radius: 5px;
-}
-</style>
-"""
-st.markdown('###')
-
-
-
+# styling content page
 page_bg_img = f"""
 <style>
 [data-testid="stAppViewContainer"] > .main {{
@@ -119,22 +102,7 @@ st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+#metrics
 col1, col2, col3 = st.columns(3)
 col1.metric("No of produce", f'{no_produces:,}')
 col2.metric("Total Price", f'{sumPrice:,}')
@@ -230,20 +198,20 @@ st.plotly_chart(avg_price_fig)
 
 
 
-average_price_year = df.groupby('year')['price'].std().sort_values(ascending=False)
-avg_price_yr = px.histogram(
+sum_price_year = df.groupby('year')['price'].sum().sort_values(ascending=False)
+sum_price_yr = px.histogram(
     average_price_year ,
-    x=average_price_year.index,
+    x=sum_price_year.index,
     y="price",
-    title="<b>Average price per year</b>",
-    color_discrete_sequence=["green"] * len(average_price_year   ),
+    title="<b>Sum price per year</b>",
+    color_discrete_sequence=["green"] * len(sum_price_year   ),
     template="plotly_white"
 )
-avg_price_yr.update_layout(
+sum_price_yr.update_layout(
     plot_bgcolor="rgba(0,0,0,0)",
     xaxis=(dict(showgrid=False))
 )
-st.plotly_chart(avg_price_yr)
+st.plotly_chart(sum_price_yr)
 
 
 
