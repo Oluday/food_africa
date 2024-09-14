@@ -10,6 +10,9 @@ import plotly.express as px
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 
 
+
+
+
 with st.form("My form"):
     first = st.text_input("First name")
     last = st.text_input("Last name")
@@ -27,6 +30,19 @@ st.write(css, unsafe_allow_html=True)
 #with open('style.css') as f:
 #    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
+
+
+
+st.markdown("""
+<style>
+    [data-testid=stSidebar] {
+        background-color: #ff000050;
+    }
+</style>
+""", unsafe_allow_html=True)
+
+with st.sidebar:
+    "## This is the side
 # Title
 #st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊')
 #(page_title="Africa food prices", layout='wide',initial_sidebar_state='expanded', page_icon='📊')
