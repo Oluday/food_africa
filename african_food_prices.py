@@ -37,7 +37,7 @@ def load_data():
   
     # dropping columns
     df.drop(columns=['Unnamed: 0','mp_commoditysource','currency_id','country_id',
-                 'market_id','state_id','produce_id','pt_id','quantity'],  inplace= True)
+                 'market_id','state_id','produce_id','pt_id'],  inplace= True)
 
     # fiiling none columns state
     df['state'].fillna('unknown', inplace=True)
