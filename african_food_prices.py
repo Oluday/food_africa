@@ -47,7 +47,7 @@ def load_data():
     #renaming two columns
     df.rename({'um_unit_id': 'exchanged_qty'}, axis=1, inplace=True)
     df['exchanged_qty'] = df.exchanged_qty.astype('float')
-    df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
+    #df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
     #cleaning produce column and renaming it
     df['core_produce'] = df['produce'].str.extract(r'([^\(]+)')
     df['core_produce'] = df['core_produce'].str.split('-').str[0]
