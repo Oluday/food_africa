@@ -29,8 +29,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    "## This is theidebar"
-
+    #"## This is theidebar"
 # Title
 #st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊')
 #(page_title="Africa food prices", layout='wide',initial_sidebar_state='expanded', page_icon='📊')
@@ -84,18 +83,8 @@ selected_countries = st.sidebar.multiselect("select country", countries,[countri
 
 
 
-# display in columns
-custom_css = """
-<style>
-.my-container {
- background-color: #f0f2f6;
- padding: 10px;
- border-radius: 5px;
-}
-</style>
-"""
-st.markdown('###')
 
+st.markdown('###')
 
 page_bg_img = f"""
 <style>
