@@ -120,7 +120,7 @@ background-repeat: no-repeat;
 background-attachment: local;
 }}
 [data-testid="stHeader"] {{
-background: rgba(0,0,0,0);
+background: #000000;
 }}
 </style>
 """
