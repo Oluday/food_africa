@@ -42,9 +42,8 @@ def load_data():
     # fiiling none columns state
     df['state'].fillna('unknown', inplace=True)
     df['year'] = df.year.replace(',', '.')
-    df['month'] = df['month'].dt.month_name().str[:3]
-
-    #df['date'].dt.month_name().str[:3].sample(5)
+    import calendar
+    df['month'] = df['month'].apply(lambda x: calendar.month_abbr[x])
 
 
     # Remove the comma from the name column
