@@ -76,6 +76,7 @@ no_years = len(years)
 no_countries = len(countries)
 
 # create a multislect for produces
+st.markdown("##")
 selected_produces = st.sidebar.multiselect("select products", produces,[produces[0]])
 selected_years = st.sidebar.multiselect("Select year", years,[years[0]])
 selected_countries = st.sidebar.multiselect("select country", countries,[countries[0]])
