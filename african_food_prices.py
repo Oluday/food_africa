@@ -9,12 +9,12 @@ import plotly.express as px
 # page config
 st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 
-with open('style.css') as f:
-    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+#with open('style.css') as f:
+#    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
 
 
 
-
+#styling sidebar
 st.markdown("""
 <style>
     [data-testid=stSidebar] {
@@ -27,7 +27,7 @@ with st.sidebar:
     "## Filter with sidebar"
 
 # Title
-#st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊')
+st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊')
 #(page_title="Africa food prices", layout='wide',initial_sidebar_state='expanded', page_icon='📊')
 
 st.markdown("##")
