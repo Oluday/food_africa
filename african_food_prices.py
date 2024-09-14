@@ -41,13 +41,11 @@ def load_data():
 
     # fiiling none columns state
     df['state'].fillna('unknown', inplace=True)
-    #df['year'] = df.year.replace(',', '.')
+    df['year'] = df.year.replace(',', '.')
     # Remove the comma from the name column
-    #df['year'] = df['year'].str.replace(',', '',  inplace=True)
     #renaming two columns
     df.rename({'um_unit_id': 'exchanged_qty'}, axis=1, inplace=True)
     df['exchanged_qty'] = df.exchanged_qty.astype('float')
-    df["quantity"] = pd.to_numeric(df["quantity"], errors="coerce")
     #cleaning produce column and renaming it
     df['core_produce'] = df['produce'].str.extract(r'([^\(]+)')
     df['core_produce'] = df['core_produce'].str.split('-').str[0]
