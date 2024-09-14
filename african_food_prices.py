@@ -307,6 +307,26 @@ st.plotly_chart(state_vol_fig)
 
 
 
+
+
+Month_exchanged_qty = new_table.groupby('month')['exchanged_qty'].sum().sort_values(ascending=False)
+month_qty_fig = px.bar(
+    Month_exchanged_qty ,
+    x=Month_exchanged_qty.index,
+    y="exchanged_qty",
+    title="<b>Exchaged Quantity Based On Month</b>",
+    color_discrete_sequence=["#0083B8"] * len(Month_exchanged_qty ),
+    template="plotly_white"
+)
+state_vol_fig.update_layout(
+    plot_bgcolor="rgba(0,0,0,0)",
+    xaxis=(dict(showgrid=False))
+)
+st.plotly_chart(month_qty_fig)
+
+
+
+
 price_by_product = (
     new_table.groupby(by=["country"]).sum()[["price"]].sort_values("price")
     
