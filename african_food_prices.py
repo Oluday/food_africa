@@ -92,21 +92,6 @@ background: rgba(0,0,0,0);
 st.markdown(page_bg_img, unsafe_allow_html=True)
 
 
-
-
-
-
-
-
-
-
-
-
-float('%.*g' % (figures, value))
-
-
-
-
 col1, col2, col3 = st.columns(3)
 col1.metric("No of produce", f'{no_produces:,}').float('%.*g' % (figures, value))
 col2.metric("Total Price", f'{sumPrice:,}')
