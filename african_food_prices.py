@@ -43,7 +43,7 @@ def load_data():
     df['state'].fillna('unknown', inplace=True)
     df['year'] = df.year.replace(',', '.')
     # Remove the comma from the name column
-    df['quantity'] = df['quantity'].str.extract('(\d+)', expand=False)
+    #df['quantity'] = df['quantity'].str.extract('(\d+)', expand=False)
     #renaming two columns
     df.rename({'um_unit_id': 'exchanged_qty'}, axis=1, inplace=True)
     df['exchanged_qty'] = df.exchanged_qty.astype('float')
