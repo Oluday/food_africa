@@ -6,16 +6,6 @@ import plotly.express as px
 
 
 
-# page config
-st.set_page_config(page_title="African Food Prices", layout='centered', page_icon='📊')
-import streamlit as st
-import numpy as np
-import pandas as pd
-import plotly.express as px
-
-
-#import matplotlib.pyplot as plt
-
 ## load data
 
 # page config
