@@ -315,7 +315,7 @@ price_vol_fig = px.bar(
     x=country_price_volatility.index,
     y="price",
     title="<b>Country price volatility</b>",
-    color_discrete_sequence=["white"] * len(country_price_volatility ),
+    color_discrete_sequence=["yellow"] * len(country_price_volatility ),
     template="plotly_white"
 )
 price_vol_fig.update_layout(
