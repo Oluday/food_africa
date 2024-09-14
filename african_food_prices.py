@@ -42,7 +42,7 @@ st.markdown("""
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    "## This is the sidebar"
+    "## This is theidebar"
 
 # Title
 #st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊')
@@ -108,6 +108,42 @@ custom_css = """
 </style>
 """
 st.markdown('###')
+
+
+page_bg_img = f"""
+<style>
+[data-testid="stAppViewContainer"] > .main {{
+background-image: url("https://i.postimg.cc/4xgNnkfX/Untitled-design.png");
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: local;
+}}
+[data-testid="stHeader"] {{
+background: rgba(0,0,0,0);
+}}
+</style>
+"""
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 col1, col2, col3 = st.columns(3)
 col1.metric("No of produce", f'{no_produces:,}')
