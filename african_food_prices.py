@@ -144,7 +144,7 @@ col3.metric("Quantity exchanged", f'{no_exchanged:,}')
 
 # returning filtered table
 new_table = df.query("core_produce == @selected_produces & year == @selected_years & country == @selected_countries")
-st.dataframe(new_table)
+#st.dataframe(new_table)
 no_new_table = new_table['produce'].nunique()
 
 #catching error
