@@ -8,7 +8,7 @@ import calendar
 
 
 ## page config
-st.set_page_config(page_title="African Food Prices", layout='centered', page_icon='📊')
+st.set_page_config(page_title="African Food Prices", layout='wide', page_icon='📊')
 
 # Title
 st.title (" 📊  African Food Prices - Web App")
