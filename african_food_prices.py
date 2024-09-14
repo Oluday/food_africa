@@ -77,6 +77,28 @@ selected_countries = st.sidebar.multiselect("select country", countries,[countri
 
 
 st.markdown('###')
+st.markdown("""
+
+page_bg_img = f"""
+<style>
+[data-testid="stAppViewContainer"] > .main {{
+background-image: url("https://i.postimg.cc/4xgNnkfX/Untitled-design.png");
+background-size: cover;
+background-position: center center;
+background-repeat: no-repeat;
+background-attachment: local;
+#background:grey;
+}}
+[data-testid="stHeader"] {{
+background: rgba(0,0,0,0);
+}}
+</style>
+"""
+
+st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
+
 col1, col2, col3 = st.columns(3)
 col1.metric("No of produce", f'{no_produces:,}')
 col2.metric("Total Price", f'{sumPrice:,}')
