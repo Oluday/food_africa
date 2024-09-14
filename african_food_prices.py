@@ -37,12 +37,14 @@ def load_data():
   
     # dropping columns
     df.drop(columns=['Unnamed: 0','mp_commoditysource','currency_id','country_id',
-                 'market_id','state_id','produce_id','pt_id', 'quantity'],  inplace= True)
+                 'market_id','state_id','produce_id','pt_id'],  inplace= True)
 
     # fiiling none columns state
     df['state'].fillna('unknown', inplace=True)
     df['year'] = df.year.replace(',', '.')
     # Remove the comma from the name column
+    regex = r"^[-+]?\d{1,3}(,\d{3})*(\.\d+)?$"
+    df['quantity'] = df["quantity"].str.match(regex)
     #renaming two columns
     df.rename({'um_unit_id': 'exchanged_qty'}, axis=1, inplace=True)
     df['exchanged_qty'] = df.exchanged_qty.astype('float')
