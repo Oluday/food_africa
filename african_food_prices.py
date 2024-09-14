@@ -11,6 +11,29 @@ st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 
 
 
+
+
+with st.form("My form"):
+    first = st.text_input("First name")
+    last = st.text_input("Last name")
+    if st.form_submit_button("Submit"):
+        st.write(first+" "+last)
+
+css="""
+<style>
+    [data-testid="stForm"] {
+        background: LightBlue;
+    }
+</style>
+"""
+st.write(css, unsafe_allow_html=True)
+#with open('style.css') as f:
+#    st.markdown(f'<style>{f.read()}</style>', unsafe_allow_html=True)
+
+
+
+
+st.markdown("""
 <style>
     [data-testid=stSidebar] {
         background-color: #ff000050;
@@ -19,9 +42,7 @@ st.set_page_config(layout='wide', initial_sidebar_state='expanded')
 """, unsafe_allow_html=True)
 
 with st.sidebar:
-    "## Filter using this sidebar"
-
-
+    "## This is theidebar"
 
 # Title
 #st.set_page_config(page_title="African food prices", layout='centered', page_icon='📊')
@@ -76,8 +97,18 @@ selected_countries = st.sidebar.multiselect("select country", countries,[countri
 
 
 
+# display in columns
+custom_css = """
+<style>
+.my-container {
+ background-color: #f0f2f6;
+ padding: 10px;
+ border-radius: 5px;
+}
+</style>
+"""
 st.markdown('###')
-st.markdown("""
+
 
 page_bg_img = f"""
 <style>
@@ -87,7 +118,6 @@ background-size: cover;
 background-position: center center;
 background-repeat: no-repeat;
 background-attachment: local;
-#background:grey;
 }}
 [data-testid="stHeader"] {{
 background: rgba(0,0,0,0);
@@ -96,6 +126,22 @@ background: rgba(0,0,0,0);
 """
 
 st.markdown(page_bg_img, unsafe_allow_html=True)
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
@@ -307,7 +353,7 @@ price_vol_fig = px.bar(
     x=country_price_volatility.index,
     y="price",
     title="<b>Country price volatility</b>",
-    color_discrete_sequence=["yellow"] * len(country_price_volatility ),
+    color_discrete_sequence=["white"] * len(country_price_volatility ),
     template="plotly_white"
 )
 price_vol_fig.update_layout(
