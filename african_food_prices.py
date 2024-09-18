@@ -155,6 +155,59 @@ else:
 
 
 
+price_by_product = (
+    new_table.groupby(by=["country"]).sum()[["price"]].sort_values("price")
+    
+)
+sales_fig = px.bar(
+    price_by_product,
+    x=price_by_product.index,
+    y="price",
+    title="<b>Sum price by produce</b>",
+    color_discrete_sequence=["#0083B8"] * len(price_by_product),
+    template="plotly_white"
+)
+sales_fig.update_layout(
+    plot_bgcolor="rgba(0,0,0,0)",
+    xaxis=(dict(showgrid=False))
+)
+#st.plotly_chart(sales_fig)
+
+
+
+
+
+country_price_volatility = new_table.groupby('country')['price'].std().sort_values(ascending=False)
+price_vol_fig = px.bar(
+    country_price_volatility ,
+    x=country_price_volatility.index,
+    y="price",
+    title="<b>Country price volatility</b>",
+    color_discrete_sequence=["yellow"] * len(country_price_volatility ),
+    template="plotly_white"
+)
+price_vol_fig.update_layout(
+    plot_bgcolor="rgba(0,0,0,0)",
+    xaxis=(dict(showgrid=False))
+)
+#st.plotly_chart(price_vol_fig)
+
+
+
+left_column, right_column = st.columns(2)
+left_column.plotly_chart(sales_fig, use_container_width=True)
+right_column.plotly_chart(price_vol_fig, use_container_width=True)
+
+
+
+
+
+
+
+
+
+
+
 average_price_year = df.groupby('year')['price'].mean().sort_values(ascending=False)
 avg_price_yr = px.scatter(
     average_price_year ,
@@ -321,51 +374,6 @@ state_vol_fig.update_layout(
 )
 st.plotly_chart(month_qty_fig)
 
-
-
-
-price_by_product = (
-    new_table.groupby(by=["country"]).sum()[["price"]].sort_values("price")
-    
-)
-sales_fig = px.bar(
-    price_by_product,
-    x=price_by_product.index,
-    y="price",
-    title="<b>Sum price by produce</b>",
-    color_discrete_sequence=["#0083B8"] * len(price_by_product),
-    template="plotly_white"
-)
-sales_fig.update_layout(
-    plot_bgcolor="rgba(0,0,0,0)",
-    xaxis=(dict(showgrid=False))
-)
-#st.plotly_chart(sales_fig)
-
-
-
-
-
-country_price_volatility = new_table.groupby('country')['price'].std().sort_values(ascending=False)
-price_vol_fig = px.bar(
-    country_price_volatility ,
-    x=country_price_volatility.index,
-    y="price",
-    title="<b>Country price volatility</b>",
-    color_discrete_sequence=["yellow"] * len(country_price_volatility ),
-    template="plotly_white"
-)
-price_vol_fig.update_layout(
-    plot_bgcolor="rgba(0,0,0,0)",
-    xaxis=(dict(showgrid=False))
-)
-#st.plotly_chart(price_vol_fig)
-
-
-
-left_column, right_column = st.columns(2)
-left_column.plotly_chart(sales_fig, use_container_width=True)
-right_column.plotly_chart(price_vol_fig, use_container_width=True)
 
 
 
